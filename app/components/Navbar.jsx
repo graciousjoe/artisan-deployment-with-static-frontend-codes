@@ -8,8 +8,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-800 text-white p-4 relative">
-      <div className="flex justify-center items-center py-6 gap-6 container mx-auto">
+    <nav className="bg-gray-300 text-black p-4 relative">
+      <div className="flex justify-center items-center py-3 gap-6 container mx-auto">
         {/* Logo + Brand */}
         <Link className="flex items-center gap-2" href="/">
           <Image
@@ -56,8 +56,8 @@ export default function Navbar() {
 
         {/* Auth Links */}
         <div className="flex gap-4">
-          <Link href="/auth/signup">Sign up</Link>
-          <Link href="/login">Log in</Link>
+          <Link href="/auth/option">Sign up</Link>
+          <Link href="/auth/option">Log in</Link>
         </div>
 
         {/* Account Button */}

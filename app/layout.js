@@ -23,13 +23,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         {/* Navbar consistent across all pages */}
         <Navbar />
 
         {/* Main content for page-specific components */}
-        <main className="min-h-screen">{children}</main>
+        <main className="flex-grow">{children}</main>
       </body>
     </html>
   );
