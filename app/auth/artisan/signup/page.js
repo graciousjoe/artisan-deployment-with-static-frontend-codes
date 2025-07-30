@@ -15,25 +15,28 @@ export default async function SignUp() {
         />
 
         <form action={createUser} className="flex flex-col gap-4 w-[60%]">
-          
           <input
             type="text"
+            name="name"
             placeholder="Name"
             className="border p-2 rounded-md"
             required
           />
           <input
-            type="password"
-            placeholder="Password"
-            className="border p-2 rounded-md"
-            required
-          />
-          <input
             type="email"
+            name="email"
             placeholder="Email"
             className="border p-2 rounded-md"
             required
           />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="border p-2 rounded-md"
+            required
+          />
+
           <button
             type="submit"
             className="bg-primary text-white p-2 rounded-md cursor-pointer"

@@ -11,9 +11,12 @@ export async function signOutWithGoogle(params) {
 }
 
 export async function createUser(formData) {
-  // Extract data and handle user creation logic here
+  
   const name = formData.get("name");
   const email = formData.get("email");
   const password = formData.get("password");
-  // ...save to DB, hash password, etc.
+  // Password hashing and user creation logic would go here
+  // For example, you might save the user to a database here
+
+  console.log("User created:", { name, email, password });
 }
