@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { signIn, signOut, useSession } from "next-auth/react";
 
@@ -7,11 +8,14 @@ export default function GoogleAuth() {
 
   return !session ? (
     <button
-      className="bg-blue-500 text-white rounded p-2"
+      className="bg-blue-500 text-white rounded p-2 flex items-center gap-2"
       type="button"
       onClick={() => signIn("google", { callbackUrl: "/portal" })}
     >
-      Sign in with Google
+      Continue with Google{" "}
+      <span className="bg-white rounded-full p-1">
+        <Image src="/google.svg" alt="Google logo" width={20} height={20} />
+      </span>
     </button>
   ) : (
     <button
