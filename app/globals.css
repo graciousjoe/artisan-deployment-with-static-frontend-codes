@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "tailwindcss";
-
 @theme {
   /* Define your theme colors here */
   --color-primary: #f97216; /* Example color */

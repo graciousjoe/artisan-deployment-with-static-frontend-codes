@@ -20,7 +20,7 @@ export default function Artisan() {
         </Link>
         <Link
           className="bg-primary text-black text-lg  p-2 w-full text-center rounded-4xl hover:opacity-90 transition"
-          href="/auth/signup"
+          href="/auth/artisan/signup"
         >
           Sign Up
         </Link>
