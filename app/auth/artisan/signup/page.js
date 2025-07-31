@@ -5,7 +5,7 @@ import { createUser } from "./actions";
 
 export default async function SignUp() {
   return (
-    <div className="flex justify-center items-center bg-black h-full w-full">
+    <div className="flex justify-center items-center md:bg-black h-full w-full">
       <div className="bg-white flex flex-col items-center justify-center p-10 gap-8 rounded-lg shadow-lg w-full md:w-[80%]">
         <Image
           src="/Artisan-Logo.png"
@@ -44,6 +44,7 @@ export default async function SignUp() {
             Sign Up
           </button>
         </form>
+
         <SessionProvider>
           <GoogleAuth />
         </SessionProvider>

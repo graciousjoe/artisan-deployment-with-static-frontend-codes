@@ -8,8 +8,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-300 text-black p-4 relative">
-      <div className="flex justify-center items-center py-3 gap-6 container mx-auto">
+    <nav className="bg-white text-black p-4 relative">
+      <div className="flex items-center justify-between py-1 gap-6 container mx-auto lg:justify-center">
         {/* Logo + Brand */}
         <Link className="flex items-center gap-2" href="/">
           <Image
@@ -20,50 +20,58 @@ export default function Navbar() {
           />
           <span>Artisan Linkup</span>
         </Link>
+        <div className="hidden lg:flex lg:gap-6 lg:items-center">
+          {/* Dropdown */}
+          <div className="relative" onMouseEnter={() => setIsOpen(true)}>
+            <button>Categories</button>
+            {isOpen && (
+              <ul className="absolute right-0 mt-2 w-40 bg-white text-black shadow-lg rounded">
+                <li>
+                  <Link
+                    href="/about"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                   
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </div>
 
-        {/* Dropdown */}
-        <div className="relative" onMouseEnter={() => setIsOpen(true)}>
-          <button>Categories</button>
-          {isOpen && (
-            <ul className="absolute right-0 mt-2 w-40 bg-white text-black shadow-lg rounded">
-              <li>
-                <Link
-                  href="/about"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          )}
+          {/* Auth Links */}
+          <div className="flex gap-4">
+            <Link href="/auth/option">Sign up</Link>
+            <Link href="/auth/option">Log in</Link>
+            <Link href="/auth/option">About Us</Link>
+            <Link href="/auth/option">Contact Us</Link>
+          </div>
+
+          {/* Account Button */}
+          <Link className="border p-3 rounded" href="/account">
+            Account
+          </Link>
         </div>
 
-        {/* Auth Links */}
-        <div className="flex gap-4">
-          <Link href="/auth/option">Sign up</Link>
-          <Link href="/auth/option">Log in</Link>
-        </div>
-
-        {/* Account Button */}
-        <Link className="border p-3 rounded" href="/account">
-          Account
-        </Link>
+        {/* Mobile Menu Button */}
+        <button className="lg:hidden cursor-pointer">
+          <Image src="/list.svg" width={20} height={20} />
+        </button>
       </div>
     </nav>
   );
