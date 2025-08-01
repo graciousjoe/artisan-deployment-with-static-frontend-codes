@@ -1,23 +1,13 @@
 // components/Navbar.tsx
 
-
 "use client";
-import React, { use } from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-const sideMenuRef = useRef()
-
-const openMenu = () => {
-  sideMenuRef.current.style.transform = 'translateX(-16rem)';
-}
-
-const closeMenu = () => {
-  sideMenuRef.current.style.transform = 'translateX(16rem)';
-}
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className="bg-white text-black p-4 fixed w-full z-50 shadow-md">
@@ -36,32 +26,6 @@ const closeMenu = () => {
           {/* Dropdown */}
           <div className="relative" onMouseEnter={() => setIsOpen(true)}>
             <button>Categories</button>
-            {isOpen && (
-              <ul className="absolute right-0 mt-2 w-40 bg-white text-black shadow-lg rounded">
-                <li>
-                  <Link
-                    href="/about"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  ></Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            )}
           </div>
 
           {/* Auth Links */}
@@ -79,24 +43,31 @@ const closeMenu = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="lg:hidden cursor-pointer">
-          <Image src="/list.svg" width={20} height={20} />
+        <button
+          className="lg:hidden cursor-pointer"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <Image src="/list.svg" width={20} height={20} alt="open menu" />
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <ul ref={sideMenuRef}
-        className="flex flex-col lg:hidden gap-4 px-10 fixed 
-       -right-64 top-0 bg-white text-black py-16
-      bottom-0 w-64 z-50 h-screen transition duration-500
-      "
+      <ul
+        className={`fixed flex flex-col top-0 bottom-0 right-0 w-64 bg-white transition-transform duration-500 px-10
+          gap-6 py-16 h-screen ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
-        <div className="absolute top-6 right-10">
+        <div
+          className="absolute top-6 right-10 "
+          onClick={() => setMenuOpen(false)}
+        >
           <Image
             src="/assets/close.svg"
             width={20}
             height={20}
             className="cursor-pointer"
+            alt="Close Menu"
           />
         </div>
         <li>
