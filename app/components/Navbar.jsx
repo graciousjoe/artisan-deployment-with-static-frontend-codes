@@ -1,14 +1,26 @@
 // components/Navbar.tsx
+
+
 "use client";
+import React, { use } from "react";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+const sideMenuRef = useRef()
+
+const openMenu = () => {
+  sideMenuRef.current.style.transform = 'translateX(-16rem)';
+}
+
+const closeMenu = () => {
+  sideMenuRef.current.style.transform = 'translateX(16rem)';
+}
 
   return (
-    <nav className="bg-white text-black p-4 relative">
+    <nav className="bg-white text-black p-4 fixed w-full z-50 shadow-md">
       <div className="flex items-center justify-between py-1 gap-6 container mx-auto lg:justify-center">
         {/* Logo + Brand */}
         <Link className="flex items-center gap-2" href="/">
@@ -30,9 +42,7 @@ export default function Navbar() {
                   <Link
                     href="/about"
                     className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                   
-                  </Link>
+                  ></Link>
                 </li>
                 <li>
                   <Link
@@ -73,6 +83,35 @@ export default function Navbar() {
           <Image src="/list.svg" width={20} height={20} />
         </button>
       </div>
+
+      {/* Mobile Menu */}
+      <ul ref={sideMenuRef}
+        className="flex flex-col lg:hidden gap-4 px-10 fixed 
+       -right-64 top-0 bg-white text-black py-16
+      bottom-0 w-64 z-50 h-screen transition duration-500
+      "
+      >
+        <div className="absolute top-6 right-10">
+          <Image
+            src="/assets/close.svg"
+            width={20}
+            height={20}
+            className="cursor-pointer"
+          />
+        </div>
+        <li>
+          <Link href="/auth/option">Sign up</Link>
+        </li>
+        <li>
+          <Link href="/auth/option">Log in</Link>
+        </li>
+        <li>
+          <Link href="/auth/option">About Us</Link>
+        </li>
+        <li>
+          <Link href="/auth/option">Contact Us</Link>
+        </li>
+      </ul>
     </nav>
   );
 }

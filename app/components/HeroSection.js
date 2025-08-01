@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <div className="relative h-[80vh] w-full bg-[url('/hero-img.png')] bg-no-repeat bg-cover bg-center">
+    <div className="relative h-[80vh] w-full bg-[url('/hero-img.png')] bg-no-repeat bg-cover bg-center mt-16">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
@@ -23,6 +24,11 @@ export default function HeroSection() {
             Every artisan on this platform is thoroughly vetted for quality,
             reliability, and professionalism.
           </p>
+
+          <div className="flex items-center justify-center md:justify-start mt-6 gap-2 text-sm font-semibold text-gray-300 hover:text-white cursor-pointer">
+            <p>View More</p> <Image src="/Arrow.png" width={24} height={24} />
+            <Link href="/auth/option" className="bg-primary py-2 px-4 rounded hover:opacity-80">Log in</Link>
+          </div>
         </div>
       </div>
     </div>
