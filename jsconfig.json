@@ -1,3 +1,12 @@
+// {
+//   "compilerOptions": {
+//     "baseUrl": ".", // ✅ Required
+//     "paths": {
+//       "@/*": ["app/*"] // ✅ Match your folder structure
+//     }
+//   }
+// }
+
 {
   "compilerOptions": {
     "paths": {
