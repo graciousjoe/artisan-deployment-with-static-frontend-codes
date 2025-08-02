@@ -24,16 +24,16 @@ export default function Navbar() {
         </Link>
         <div className="hidden lg:flex lg:gap-6 lg:items-center">
           {/* Dropdown */}
-          <div className="relative" onMouseEnter={() => setIsOpen(true)}>
-            <button>Categories</button>
+          <div className="relative">
+            <button className="hover:text-primary">Categories</button>
           </div>
 
           {/* Auth Links */}
           <div className="flex gap-4">
-            <Link href="/auth/option">Sign up</Link>
-            <Link href="/auth/option">Log in</Link>
-            <Link href="/auth/option">About Us</Link>
-            <Link href="/auth/option">Contact Us</Link>
+            <Link href="/auth/option" className="hover:text-primary">Sign up</Link>
+            <Link href="/auth/option" className="hover:text-primary">Log in</Link>
+            <Link href="/auth/option" className="hover:text-primary">About Us</Link>
+            <Link href="/auth/option" className="hover:text-primary">Contact Us</Link>
           </div>
 
           {/* Account Button */}

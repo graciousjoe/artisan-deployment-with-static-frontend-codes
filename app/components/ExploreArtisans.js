@@ -7,7 +7,7 @@ export default function ExploreArtisan() {
         </h1>
         <p>Verified Experts at Your Door Step</p>
       </div>
-      <div>//Grid box to be done here</div>
+      <div>{/* Grid box to be done here */}</div>
     </div>
   );
 }

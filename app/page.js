@@ -5,14 +5,17 @@ import ChoseArtisans from "./components/ChoseArtisans";
 import data from "@/app/data/chosertisans.js";
 
 export default function Home() {
-  const chooseArtisans = data.map((artisan) => {
-    return <ChoseArtisans key={artisan.id} artisan={artisan} />;
+  const chooseArtisans = data.map((data) => {
+    return <ChoseArtisans key={data.id} artisan={data} />;
   });
   return (
     <main className="flex flex-col ">
       <HeroSection />
       <ExploreArtisans />
-      <div>{chooseArtisans}</div>
+      <div className="container mx-auto flex justify-center p-4">
+        <div className="grid grid-cols-2 gap-4 h-96">{chooseArtisans}</div>
+      </div>
+
     </main>
   );
 }

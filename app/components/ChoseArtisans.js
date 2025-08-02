@@ -1,12 +1,16 @@
 import React from "react";
 
 export default function ChoseArtisans(props) {
-    const { name, description, image } = props.entry;
+  const { name, description, image } = props.artisan;
   return (
-    <div>
-      <h4>{name}</h4>
-      <p>{description}</p>
-      <img src={image} alt={name} />
+    <div className="flex flex-col p-4 border rounded-lg shadow-md ">
+      <img
+        className="rounded-lg w-full h-[220px] md:h-[200px] lg:h-[350px] object-cover"
+        src={image.src}
+        alt={image.alt}
+      />
+      <h4 className="text-lg font-medium mt-2">{name}</h4>
+      <p className="text-sm text-gray-700">{description}</p>
     </div>
   );
 }
