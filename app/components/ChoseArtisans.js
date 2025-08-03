@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function ChoseArtisans(props) {
   const { name, description, image } = props.artisan;
   return (
-    <div className="flex flex-col p-4 border rounded-lg shadow-md ">
+    <div className="flex flex-col p-4 border rounded-lg shadow-md bg-white ">
       <Image
         width={400}
         height={300}
