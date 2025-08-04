@@ -15,7 +15,7 @@ export default function Navbar() {
         {/* Logo + Brand */}
         <Link className="flex items-center gap-2" href="/">
           <Image
-            src="/artisan-logo.png"
+            src="/Artisan-logo.png"
             alt="Artisan Logo"
             width={40}
             height={40}
@@ -30,10 +30,18 @@ export default function Navbar() {
 
           {/* Auth Links */}
           <div className="flex gap-4">
-            <Link href="/auth/option" className="hover:text-primary">Sign up</Link>
-            <Link href="/auth/option" className="hover:text-primary">Log in</Link>
-            <Link href="/auth/option" className="hover:text-primary">About Us</Link>
-            <Link href="/auth/option" className="hover:text-primary">Contact Us</Link>
+            <Link href="/auth/option" className="hover:text-primary">
+              Sign up
+            </Link>
+            <Link href="/auth/option" className="hover:text-primary">
+              Log in
+            </Link>
+            <Link href="/auth/option" className="hover:text-primary">
+              About Us
+            </Link>
+            <Link href="/auth/option" className="hover:text-primary">
+              Contact Us
+            </Link>
           </div>
 
           {/* Account Button */}

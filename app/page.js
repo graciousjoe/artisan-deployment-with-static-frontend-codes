@@ -20,8 +20,8 @@ export default function Home() {
     <main className="flex flex-col">
       <HeroSection />
       <ExploreArtisans />
-      <div className="container bg-background-2 pt-5 pb-16 mx-auto flex flex-col items-center justify-center p-4 gap-6">
-        <h2 className="text-xl font-bold w-full text-start">
+      <div className="container bg-background-2 pt-5 pb-16 mx-auto flex flex-col items-center justify-center p-4 gap-4">
+        <h2 className="text-xl font-bold text-start">
           Choose Your Artisan
         </h2>
         <p className="text-sm">
@@ -32,7 +32,7 @@ export default function Home() {
 
       <WhyArtisanLinkup />
 
-      <section className="py-10 container mx-auto px-4">
+      <section className=" container mx-auto px-4">
         {/* The main container div now has padding and centers the heading */}
         <div className="px-4 text-center">
           <h2 className="text-2xl font-bold py-5">Voices from the Street</h2>
