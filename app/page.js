@@ -4,7 +4,7 @@ import ChoseArtisans from "./components/ChoseArtisans";
 import data from "@/app/data/chosertisans.js";
 import WhyArtisanLinkup from "./components/WhyArtisanLinkup";
 import Review from "./components/Review"; // ✅ Correct import
-import reviewData from "@/app/data/review.js";
+import reviewData, { reviewofWeek } from "@/app/data/review.js";
 
 export default function Home() {
   const chooseArtisans = data.map((data) => (
@@ -23,21 +23,37 @@ export default function Home() {
         <h2 className="text-xl font-bold w-full text-start">
           Choose Your Artisan
         </h2>
+        <p className="text-sm">
+          Verified customers share their experience with Area Sabi artisans
+        </p>
         <div className="grid grid-cols-2 gap-4">{chooseArtisans}</div>
       </div>
 
       <WhyArtisanLinkup />
 
       <section className="py-10 container mx-auto">
-        <div className="px-4 flex flex-col items-center justify-center">
-          <h2 className="text-2xl font-bold py-5">
-            Why Choose Artisan Linkup?
-          </h2>
+        {/* The main container div now has padding and centers the heading */}
+        <div className="px-4 text-center">
+          <h2 className="text-2xl font-bold py-5">Voices from the Street</h2>
+          <p></p>
         </div>
+
+        {/* The scrollable reviews container remains the same.
+      Note that md:max-w-[800px] on the inner div may cause misalignment
+      with the main container on some screen sizes.
+  */}
         <div className="overflow-x-auto px-4 md:px-0">
           <div className="flex gap-4 w-fit md:grid md:grid-cols-3 md:w-full md:max-w-[800px] md:mx-auto">
             {reviews}
           </div>
+        </div>
+
+        {/* The "Review of the Week" container now has consistent padding
+      and uses text-center to align its content.
+  */}
+        <div className="px-4 text-center ">
+          <h2 className="text-2xl font-bold py-5">Review of the Week</h2>
+          <p className="text-sm">{reviewofWeek[0].text}</p>
         </div>
       </section>
     </main>
