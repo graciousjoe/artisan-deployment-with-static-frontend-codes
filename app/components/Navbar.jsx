@@ -1,18 +1,39 @@
-// components/Navbar.tsx
-
 "use client";
-import React, { useRef } from "react";
-import { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null); // no <HTMLUListElement> type
+  const buttonRef = useRef(null); // no <HTMLButtonElement> type
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
+    }
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
 
   return (
     <nav className="bg-white text-black p-4 fixed w-full z-50 shadow-md">
-      <div className="flex items-center justify-between py-1 gap-6 container mx-auto lg:justify-center">
-        {/* Logo + Brand */}
+      <div className="flex text-sm items-center justify-between py-1 gap-6 container mx-auto lg:justify-center">
         <Link className="flex items-center gap-2" href="/">
           <Image
             src="/Artisan-logo.png"
@@ -22,20 +43,12 @@ export default function Navbar() {
           />
           <span>Artisan Linkup</span>
         </Link>
+
         <div className="hidden lg:flex lg:gap-6 lg:items-center">
-          {/* Dropdown */}
           <div className="relative">
             <button className="hover:text-primary">Categories</button>
           </div>
-
-          {/* Auth Links */}
           <div className="flex gap-4">
-            <Link href="/auth/option" className="hover:text-primary">
-              Sign up
-            </Link>
-            <Link href="/auth/option" className="hover:text-primary">
-              Log in
-            </Link>
             <Link href="/auth/option" className="hover:text-primary">
               About Us
             </Link>
@@ -43,15 +56,23 @@ export default function Navbar() {
               Contact Us
             </Link>
           </div>
+        </div>
 
-          {/* Account Button */}
-          <Link className="border p-3 rounded" href="/account">
-            Account
+        <div className="text-sm gap-4 items-center hidden lg:flex">
+          <Link href="/auth/option" className="hover:text-primary">
+            Log in
+          </Link>
+          <Link
+            href="/auth/option"
+            className="hover:text-primary bg-primary text-white px-4 py-2 rounded-md"
+          >
+            Sign up
           </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
+          ref={buttonRef}
           className="lg:hidden cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
         >
@@ -61,13 +82,14 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <ul
+        ref={menuRef}
         className={`fixed flex flex-col top-0 bottom-0 right-0 w-64 bg-white transition-transform duration-500 px-10
-          gap-6 py-16 h-screen ${
+          gap-6 py-16 h-screen z-50 ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
         <div
-          className="absolute top-6 right-10 "
+          className="absolute top-6 right-10"
           onClick={() => setMenuOpen(false)}
         >
           <Image
