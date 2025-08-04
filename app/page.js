@@ -5,6 +5,7 @@ import data from "@/app/data/chosertisans.js";
 import WhyArtisanLinkup from "./components/WhyArtisanLinkup";
 import Review from "./components/Review"; // ✅ Correct import
 import reviewData, { reviewofWeek } from "@/app/data/review.js";
+import HowToUse from "./components/HowToUse";
 
 export default function Home() {
   const chooseArtisans = data.map((data) => (
@@ -31,7 +32,7 @@ export default function Home() {
 
       <WhyArtisanLinkup />
 
-      <section className="py-10 container mx-auto">
+      <section className="py-10 container mx-auto px-4">
         {/* The main container div now has padding and centers the heading */}
         <div className="px-4 text-center">
           <h2 className="text-2xl font-bold py-5">Voices from the Street</h2>
@@ -51,11 +52,17 @@ export default function Home() {
         {/* The "Review of the Week" container now has consistent padding
       and uses text-center to align its content.
   */}
-        <div className="px-4 text-center ">
-          <h2 className="text-2xl font-bold py-5">Review of the Week</h2>
-          <p className="text-sm">{reviewofWeek[0].text}</p>
+        <div className="px-4 text-center max-w-[800px] mx-auto bg-background-dark text-white p-6 rounded-lg mt-8">
+          <h2 className="text-lg font-medium inline px-2 py-1 bg-background-2 rounded">
+            Review of the Week
+          </h2>
+          <p className="text-base mt-3">{reviewofWeek[0].text}</p>
+          <p className="text-sm text-primary mt-3">{reviewofWeek[0].name}</p>
         </div>
       </section>
+
+      <HowToUse />
+
     </main>
   );
 }

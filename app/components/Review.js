@@ -8,7 +8,7 @@ export default function Review({ review }) {
       <div className="flex items-center gap-4">
         <Image
           src={image.src}
-          alt={name.alt}
+          alt={image.alt}
           width={60}
           height={60}
           className="rounded-full"
@@ -20,7 +20,7 @@ export default function Review({ review }) {
       </div>
       <Image
         src={rating.src}
-        alt={name.alt}
+        alt={rating.alt}
         width={100}
         height={20}
         className="mt-4"
