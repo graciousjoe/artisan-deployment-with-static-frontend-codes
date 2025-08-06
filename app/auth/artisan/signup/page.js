@@ -11,7 +11,7 @@ export default async function SignUp({ searchParams }) {
 
   return (
     <div className="flex justify-center items-center md:bg-black h-full w-full">
-      <div className="bg-white flex flex-col items-center justify-center p-10 gap-8 rounded-lg shadow-lg w-full md:w-[50%]"> 
+      <div className="bg-white flex flex-col items-center justify-center p-10 gap-8 rounded-lg shadow-lg w-full md:w-[50%]">
         {/* <Image
           src="/Artisan-Logo.png"
           alt="Artisan logo"
@@ -19,7 +19,9 @@ export default async function SignUp({ searchParams }) {
           height={60}
         /> */}
 
-        <h1 className="text-2xl md:text-3xl font-medium">Sign up to find work you love</h1>
+        <h1 className="text-2xl md:text-3xl font-medium">
+          Sign up to find work you love
+        </h1>
 
         {/* ✅ Feedback Message */}
         {success && (
@@ -33,7 +35,7 @@ export default async function SignUp({ searchParams }) {
           </p>
         )}
 
-        <form action={createUser} className="flex flex-col gap-4 w-[80%]">
+        <form action={createUser} className="flex flex-col gap-4 w-[100%]">
           <div className="flex flex-col items-center w-full">
             <input
               type="text"
@@ -90,15 +92,20 @@ export default async function SignUp({ searchParams }) {
               Password is required
             </span>
           </div>
-          <button
-            type="submit"
-            className="bg-primary text-white p-2 rounded-md cursor-pointer"
-          >
-            Create an Account
-          </button>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="bg-primary text-white p-2 rounded-md cursor-pointer w-full block md:w-[35%]"
+            >
+              Create an Account
+            </button>
+          </div>
 
           <p className="text-center text-sm text-gray-500">
-            Already have an account? <a href="/auth/login" className="text-primary">Log in</a>
+            Already have an account?{" "}
+            <a href="/auth/login" className="text-primary">
+              Log in
+            </a>
           </p>
         </form>
 
