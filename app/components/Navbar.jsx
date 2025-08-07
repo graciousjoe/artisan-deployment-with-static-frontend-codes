@@ -52,7 +52,7 @@ export default function Navbar() {
             <Link href="/auth/option" className="hover:text-primary">
               About Us
             </Link>
-            <Link href="/auth/contact" className="hover:text-primary">
+            <Link href="/contact" className="hover:text-primary">
               Contact Us
             </Link>
           </div>
