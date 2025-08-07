@@ -52,7 +52,7 @@ export default function Navbar() {
             <Link href="/auth/option" className="hover:text-primary">
               About Us
             </Link>
-            <Link href="/auth/option" className="hover:text-primary">
+            <Link href="/auth/contact" className="hover:text-primary">
               Contact Us
             </Link>
           </div>
@@ -110,7 +110,7 @@ export default function Navbar() {
           <Link href="/auth/option">About Us</Link>
         </li>
         <li>
-          <Link href="/auth/option">Contact Us</Link>
+          <Link href="/contact">Contact Us</Link>
         </li>
       </ul>
     </nav>
