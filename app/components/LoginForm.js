@@ -37,7 +37,7 @@ export default function LoginForm() {
       </div>
 
       <div className="flex flex-col items-center justify-center mt-8 gap-5 ">
-        <p>Don't have an account? </p>
+        <p>Don&apos;t have an account? </p>
         <Link
           href="/auth/option"
           className="text-primary border-primary border-2 px-6 py-1 rounded-md"

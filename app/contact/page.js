@@ -14,7 +14,7 @@ export default function ContactPage() {
             We are here to help you connect, create and collaborate. Whether you
             are an artisan looking to grow your network or a customer serching
             for trusted profesionals, we will love to hear from you, Got a
-            question, suggestion, or issue? let's talk
+            question, suggestion, or issue? let&apos;s talk
           </p>
 
           <div>
@@ -92,17 +92,21 @@ export default function ContactPage() {
       </div>
 
       <div className="relative h-[70vh] md:h-150 w-full bg-[url('/assets/contact-potter.png')] bg-no-repeat bg-cover bg-center md:bg-top p-6 flex items-center justify-center text-white">
-      <h3 className="pb-3 text-3xl font-bold md:text-5xl lg:text-6xl leading-normal sm:text-center mx-auto flex justify-center">
-            Discover Skilled
-            <span className="hidden md:inline">
-              <br />
-            </span>{" "}
-            Local Artisans You
-            <span className="hidden md:inline">
-              <br />
-            </span>{" "}
-            Trust
-          </h3>
+        <h3 className="pb-3 text-3xl font-bold md:text-5xl lg:text-6xl leading-normal sm:text-center mx-auto flex justify-center">
+          Discover Skilled
+          <span className="hidden md:inline">
+            <br />{" "}
+          </span>{" "}
+          Local Artisans You
+          <span className="hidden md:inline">
+            <br />
+          </span>{" "}
+          Local Artisans You
+          <span className="hidden md:inline">
+            <br />
+          </span>{" "}
+          Trust{" "}
+        </h3>{" "}
       </div>
     </div>
   );
