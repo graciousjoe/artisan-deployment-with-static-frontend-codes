@@ -1,4 +1,5 @@
 import Image from "next/image";
+import NewsLetter from "@/app/components/NewsLetter";
 export default function ContactPage() {
   return (
     <div className="flex flex-col">
@@ -91,22 +92,21 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <div className="relative h-[70vh] md:h-150 w-full bg-[url('/assets/contact-potter.png')] bg-no-repeat bg-cover bg-center md:bg-top p-6 flex items-center justify-center text-white">
-        <h3 className="pb-3 text-3xl font-bold md:text-5xl lg:text-6xl leading-normal sm:text-center mx-auto flex justify-center">
-          Discover Skilled
-          <span className="hidden md:inline">
-            <br />{" "}
-          </span>{" "}
-          Local Artisans You
-          <span className="hidden md:inline">
-            <br />
-          </span>{" "}
-          Local Artisans You
-          <span className="hidden md:inline">
-            <br />
-          </span>{" "}
-          Trust{" "}
-        </h3>{" "}
+      <div className="relative h-[70vh] md:h-[40rem] w-full bg-[url('/assets/contact-potter.png')] bg-no-repeat bg-cover bg-center md:bg-top p-6 flex flex-col items-center justify-center text-white max-w-5xl mx-auto rounded-3xl text-center">
+        <h3 className="pb-4 text-3xl font-bold md:text-5xl lg:text-6xl leading-tight">
+          Engage an Artisan <br />
+          and Have a Relaxed <br />
+          Mind
+        </h3>
+
+        <p className="max-w-2xl text-base md:text-lg">
+          Experience stress-free comfort on our platform and enjoy affordable
+          pricing.
+        </p>
+      </div>
+
+      <div>
+        <NewsLetter />
       </div>
     </div>
   );
