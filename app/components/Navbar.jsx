@@ -49,7 +49,7 @@ export default function Navbar() {
             <button className="hover:text-primary">Categories</button>
           </div>
           <div className="flex gap-4">
-            <Link href="/auth/option" className="hover:text-primary">
+            <Link href="/about" className="hover:text-primary">
               About Us
             </Link>
             <Link href="/contact" className="hover:text-primary">
@@ -107,7 +107,7 @@ export default function Navbar() {
           <Link href="/auth/option">Log in</Link>
         </li>
         <li>
-          <Link href="/auth/option">About Us</Link>
+          <Link href="/about">About Us</Link>
         </li>
         <li>
           <Link href="/contact">Contact Us</Link>
