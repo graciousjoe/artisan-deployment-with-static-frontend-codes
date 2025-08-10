@@ -3,6 +3,7 @@ import Image from "next/image";
 import GoogleAuth from "@/app/components/GoogleAuth";
 import { SessionProvider } from "next-auth/react";
 import { createUser } from "./actions";
+import Link from "next/link";
 
 export default async function SignUp({ searchParams }) {
   const params = await searchParams;
@@ -103,9 +104,9 @@ export default async function SignUp({ searchParams }) {
 
           <p className="text-center text-sm text-gray-500">
             Already have an account?{" "}
-            <a href="/auth/login" className="text-primary">
+            <Link href="/auth/login" className="text-primary">
               Log in
-            </a>
+            </Link>
           </p>
         </form>
 
