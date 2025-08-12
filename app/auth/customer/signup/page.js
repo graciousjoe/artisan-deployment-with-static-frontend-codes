@@ -38,7 +38,7 @@ export default async function SignUp({ searchParams }) {
 
         <form action={createUser} className="flex flex-col gap-4 w-[100%]">
           <div className="flex flex-col items-center w-full">
-            <input type="hidden" name="role" value="artisan" />
+            <input type="hidden" name="role" value="customer" />
             <input
               type="text"
               name="name"
@@ -112,7 +112,7 @@ export default async function SignUp({ searchParams }) {
         </form>
 
         <SessionProvider>
-          <GoogleAuth role="artisan"/>
+          <GoogleAuth role="customer"/>
         </SessionProvider>
       </div>
     </div>

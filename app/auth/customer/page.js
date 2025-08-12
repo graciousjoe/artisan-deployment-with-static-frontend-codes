@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Signupas() {
+export default function Customer() {
   return (
     <div className="flex justify-center items-center bg-black h-full w-full">
       <div className="bg-white flex flex-col items-center justify-center p-10 gap-8 rounded-lg shadow-lg w-[50%] md:w-[40%] ">
@@ -14,15 +14,15 @@ export default function Signupas() {
 
         <Link
           className="bg-primary text-black text-lg p-2 w-full text-center rounded-4xl hover:opacity-90 transition"
-          href="/auth/artisan"
+          href="/auth/artisan/login"
         >
-          I am an Artisan
+          Log In
         </Link>
         <Link
           className="bg-primary text-black text-lg  p-2 w-full text-center rounded-4xl hover:opacity-90 transition"
-          href="/auth/customer"
+          href="/auth/customer/signup"
         >
-          I am a Customer
+          Sign Up
         </Link>
       </div>
     </div>

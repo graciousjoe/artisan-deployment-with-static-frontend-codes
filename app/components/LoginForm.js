@@ -39,7 +39,7 @@ export default function LoginForm() {
       <div className="flex flex-col items-center justify-center mt-8 gap-5 ">
         <p>Don&apos;t have an account? </p>
         <Link
-          href="/auth/option"
+          href="./signup"
           className="text-primary border-primary border-2 px-6 py-1 rounded-md"
         >
           Sign Up

@@ -3,14 +3,16 @@ import Image from "next/image";
 
 import { signIn, signOut, useSession } from "next-auth/react";
 
-export default function GoogleAuth() {
+export default function GoogleAuth({ role }) {
   const { data: session } = useSession();
+
+  const callbackUrl = role ? "/portal?role=${role}" : "/protal";
 
   return !session ? (
     <button
       className="bg-blue-500 text-white rounded p-2 flex items-center gap-2"
       type="button"
-      onClick={() => signIn("google", { callbackUrl: "/portal" })}
+      onClick={() => signIn("google", { callbackUrl })}
     >
       Continue with Google{" "}
       <span className="bg-white rounded-full p-1">
