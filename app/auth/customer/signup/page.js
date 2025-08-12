@@ -13,15 +13,9 @@ export default async function SignUp({ searchParams }) {
   return (
     <div className="flex justify-center items-center md:bg-black h-full w-full">
       <div className="bg-white flex flex-col items-center justify-center p-10 gap-8 rounded-lg shadow-lg w-full md:w-[50%]">
-        {/* <Image
-          src="/Artisan-Logo.png"
-          alt="Artisan logo"
-          width={60}
-          height={60}
-        /> */}
 
         <h1 className="text-2xl md:text-3xl font-medium">
-          Sign up to find work you love
+          Sign up to Hire Artisans
         </h1>
 
         {/* ✅ Feedback Message */}
@@ -112,7 +106,7 @@ export default async function SignUp({ searchParams }) {
         </form>
 
         <SessionProvider>
-          <GoogleAuth role="customer"/>
+          <GoogleAuth role="customer" />
         </SessionProvider>
       </div>
     </div>
