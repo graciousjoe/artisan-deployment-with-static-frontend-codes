@@ -6,11 +6,11 @@ import { signIn, signOut, useSession } from "next-auth/react";
 export default function GoogleAuth({ role }) {
   const { data: session } = useSession();
 
-  const callbackUrl = role ? "/portal?role=${role}" : "/protal";
+  const callbackUrl = role ? `/portal?role=${role}` : "/portal";
 
   return !session ? (
     <button
-      className="bg-blue-500 text-white rounded p-2 flex items-center gap-2"
+      className="bg-blue-500 text-white rounded p-2 flex items-center gap-2 cursor-pointer"
       type="button"
       onClick={() => signIn("google", { callbackUrl })}
     >

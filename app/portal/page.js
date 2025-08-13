@@ -1,13 +1,16 @@
+// app/portal/page.js
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import { Redirector } from "./PortalLogic"; // Import the new component
 
-export default async function ProfilePage() {
+export default async function PortalPage() {
   const session = await auth();
-  if (!session) return redirect("/profile");
-  return (
-    <div>
-      <h1>Welcome to your profile</h1>
-      <p>Email: {session.user.email}</p>
-    </div>
-  );
+
+  // Security check first
+  if (!session) {
+    return redirect("/auth/option");
+  }
+
+  // Render the Client Component to handle redirection
+  return <Redirector />;
 }
