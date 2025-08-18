@@ -43,6 +43,7 @@ jobs:
                   tfsec --version
 
                 # FRONTEND BUILD 
+                
             - name: Setup Node.js
               uses: actions/setup-node@v3
               with: 
@@ -52,7 +53,7 @@ jobs:
               
             - name: Build Frontend
               run: npm run build
-              
+
                # TERRAFORM STEPS
 
             - name: format Terraform files
