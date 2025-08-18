@@ -1,4 +1,4 @@
-name: deploy frontend resources to AWS
+name: Deploy Frontend Resources to AWS
 
 on:
     push:
@@ -7,7 +7,7 @@ on:
     #     branches: main
 jobs:
     terraform:
-        name: terraform lint, security check and deploy
+        name: Terraform Lint, Security Check, Build and Deploy
         runs-on: ubuntu-latest
 
         env:
@@ -16,16 +16,16 @@ jobs:
             TFLINT_VERSION: '0.46.1'
             TFSEC_VERSION: '1.28.1'
         steps:
-            - name: checkout to github repo
+            - name: Checkout to GitHub Repo
               uses: actions/checkout@v2
 
-            - name: Set up AWS credentials
+            - name: Set up AWS Credentials
               uses: aws-actions/configure-aws-credentials@v1
               with:
                   aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                   aws-region: ${{ env.AWS_REGION }}
-            - name: setup  terraform
+            - name: Setup  Terraform
               uses: hashicorp/setup-terraform@v3
               with:
                   terraform_version: ${{ env.TF_VERSION}}
@@ -41,6 +41,20 @@ jobs:
                   chmod +x tfsec
                   mv tfsec /usr/local/bin/
                   tfsec --version
+
+                # FRONTEND BUILD 
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with: 
+                node-version: 18
+            - name: Install Frontend Dependencies
+              run: npm ci
+              
+            - name: Build Frontend
+              run: npm run build
+              
+               # TERRAFORM STEPS
+
             - name: format Terraform files
               id: fmt_recursive
               run: terraform fmt -recursive

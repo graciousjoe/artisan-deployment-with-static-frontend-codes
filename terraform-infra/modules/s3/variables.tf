@@ -21,3 +21,8 @@ variable "bucket_versioning_status" {
     default = "Enabled"
 
 }
+
+variable "frontend_build_path" {
+    description = "path to the frontend build output"
+    default = "ARTISAN-LINKUP/.next/static"
+}

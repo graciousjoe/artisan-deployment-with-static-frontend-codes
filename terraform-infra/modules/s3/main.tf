@@ -18,6 +18,15 @@ resource "aws_s3_bucket_versioning" "versioning_frontend" {
   }
 }
 
+resource "aws_s3_object" "frontend_file" {
+  for_each = fileset(var.frontend_build_path, "**/*") 
+
+  bucket = aws_s3_bucket.frontend.id
+  key = each.value
+  source = "${var.frontend_build_path}/${each.value}"
+  etag = filemd5("${var.frontend_build_path}/${each.value}")
+}
+
 resource "aws_s3_bucket_public_access_block" "frontend_public_access" {
   bucket                  = aws_s3_bucket.frontend.id
   block_public_acls       = true
