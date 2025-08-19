@@ -12,6 +12,7 @@ provider "aws" {
   region = "var.aws_region"
 }
 
+# Terraform State files mgt  
 terraform {
   backend "s3" {
     bucket = "artisan-frontend-terraform-state"

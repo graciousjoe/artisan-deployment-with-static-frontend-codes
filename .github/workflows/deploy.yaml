@@ -42,7 +42,7 @@ jobs:
             #       mv tfsec /usr/local/bin/
             #       tfsec --version
 
-                # FRONTEND BUILD 
+            #     # FRONTEND BUILD 
                 
             - name: Setup Node.js
               uses: actions/setup-node@v3
