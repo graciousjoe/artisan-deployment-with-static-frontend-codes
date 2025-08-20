@@ -14,7 +14,7 @@ variable "project_prefix" {
 }
 
 variable "environment"{
-    default = "dev"
+    default = "Production"
 }
 
 variable "bucket_name" {

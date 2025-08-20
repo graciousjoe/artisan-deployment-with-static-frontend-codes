@@ -59,17 +59,22 @@ jobs:
             - name: format Terraform files
               id: fmt_recursive
               run: terraform fmt -recursive
+              working-directory: terraform-infra
+
             - name: Terraform format
               id: fmt
-              run: terraform fmt -check
+              run: terraform fmt -check -recursive
+              working-directory: terraform-infra
 
             - name: Terraform Init
               id: init
               run: terraform init
+              working-directory: terraform-infra
 
             - name: Terraform Validate
               id: validate
               run: terraform validate -no-color
+              working-directory: terraform-infra
 
             # - name: TFLINT
             #   run: |
@@ -86,3 +91,4 @@ jobs:
 
             - name: Terraform Apply
               run: terraform apply -auto-approve tfplan
+              working-directory: terraform-infra
