@@ -9,13 +9,14 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "var.aws_region"
+  region = "eu-north-1"
 }
 
 # Terraform State files mgt  
 terraform {
   backend "s3" {
     bucket = "artisan-frontend-terraform-state"
-    region = "var.aws_region"
+    key    = "frontend/dev/terraform.tfstate"
+    region = "eu-north-1"
   }
 }
