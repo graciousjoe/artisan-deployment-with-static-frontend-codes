@@ -1,7 +1,7 @@
 variable "bucket_name" {
     default = "artisan_linkup_frontend"
-      description = "name of S3 bucket for frontend"
-      type = string
+    description = "name of S3 bucket for frontend"
+    type = string
 }
 
 variable "environment" {
@@ -10,15 +10,14 @@ variable "environment" {
     type = string
 }
 
-variable "name" {
-    description = "project name"
-    default = "artisan_linkup_frontend"
-    type = string
+variable "project_prefix" {
+    description = "Prefix for bucket naming"
+    type        = string
 }
 
-variable "bucket_versioning_status" {
+variable "versioning_status" {
     description = "Bucket versioning status"
-    default = "Enabled"
+    default = "Disabled"
 
 }
 

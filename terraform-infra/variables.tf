@@ -3,5 +3,25 @@ variable "aws_region" {
 }
 
 variable "frontend_build_path" {
-    default = "ARTISAN-LINKUP/.next/static"
+     default = "ARTISAN-LINKUP/.next/static"
+
+}
+   
+
+variable "project_prefix" {
+     default = "artisan_linkup"
+  
+}
+
+variable "environment"{
+    default = "dev"
+}
+
+variable "bucket_name" {
+    default = "artisan_linkup_frontend" 
+}
+
+variable "bucket_regional_domain_name" {
+    description = "regional domain name of the frontend s3 bucket"
+    type = string
 }

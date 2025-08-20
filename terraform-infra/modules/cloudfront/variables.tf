@@ -3,11 +3,17 @@ variable "bucket_regional_domain_name" {
     type = string
 }
 
-variable "artisanlinkup_frontend" {
-    default = "artisanlinkup_frontend"
-}
-
 variable "frontend_bucket_arn" {
     type = string
     description = "ARN of the frontend_bucket"
 }
+
+
+variable "bucket_name" {
+    type = string
+}
+
+variable "project_prefix" {
+    type = string
+}
+
