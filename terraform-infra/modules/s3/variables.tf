@@ -13,12 +13,8 @@ variable "environment" {
 variable "project_prefix" {
     description = "Prefix for bucket naming"
     type        = string
-}
-
-variable "versioning_status" {
-    description = "Bucket versioning status"
-    default = "Disabled"
-
+    default = "artisan_linkup"
+  
 }
 
 variable "frontend_build_path" {

@@ -3,9 +3,9 @@ output "bucket_name" {
   value       = module.s3.bucket_name
 }
 
-output "bucket_arn" {
+output "frontend_bucket_arn" {
   description = "The ARN of the S3 static bucket"
-  value       = module.s3.bucket_arn
+  value       = module.s3.frontend_bucket_arn
 }
 
 output "cloudfront_distribution_domain" {

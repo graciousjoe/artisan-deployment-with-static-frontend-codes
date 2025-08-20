@@ -8,12 +8,15 @@ variable "frontend_bucket_arn" {
     description = "ARN of the frontend_bucket"
 }
 
-
 variable "bucket_name" {
+    default = "artisan_linkup_frontend"
+    description = "name of S3 bucket for frontend"
     type = string
 }
 
 variable "project_prefix" {
-    type = string
+    description = "Prefix for bucket naming"
+    type        = string
+    default = "artisan_linkup"
+  
 }
-

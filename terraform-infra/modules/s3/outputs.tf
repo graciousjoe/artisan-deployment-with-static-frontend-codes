@@ -10,3 +10,12 @@ output "frontend_bucket_regional_domain_name" {
 output "frontend_bucket_arn" {
    value = aws_s3_bucket.frontend.arn
 }
+
+output "bucket_arn" {
+  value = aws_s3_bucket.frontend.arn
+}
+
+output "project_prefix" {
+   value = var.project_prefix
+  
+}

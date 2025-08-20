@@ -16,3 +16,7 @@ output "cloudfront_distribution_arn" {
   value       = aws_cloudfront_distribution.cdn.arn
 }
 
+output "project_prefix" {
+   value = var.project_prefix
+  
+}
