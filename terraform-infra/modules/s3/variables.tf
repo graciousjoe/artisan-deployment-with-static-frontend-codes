@@ -17,7 +17,7 @@ variable "project_prefix" {
   
 }
 
-variable "frontend_build_path" {
-    description = "path to the frontend build output"
-    default = "../.next/static"
-}
+# variable "frontend_build_path" {
+#     description = "path to the frontend build output"
+#     default = "../.next/static"
+# }

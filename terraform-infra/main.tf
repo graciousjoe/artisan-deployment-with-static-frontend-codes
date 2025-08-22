@@ -48,6 +48,7 @@ module "cloudfront" {
   source        = "./modules/cloudfront"
   bucket_name   = module.s3.bucket_name
   frontend_bucket_arn    = module.s3.frontend_bucket_arn
+  frontend_bucket_regional_domain_name = module.s3.domain_name
   frontend_bucket_website_endpoint = module.s3.frontend_bucket_website_endpoint
   project_prefix = var.project_prefix
 }

@@ -20,3 +20,9 @@ variable "frontend_bucket_website_endpoint" {
    description = "website endpoint of the frontend s3 bucket"
    type = string
 }
+
+variable "frontend_bucket_regional_domain_name" {
+  description = "The regional domain name of the S3 bucket (e.g. my-bucket.s3.us-east-1.amazonaws.com)"
+  type        = string
+}
+

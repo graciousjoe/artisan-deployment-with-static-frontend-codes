@@ -55,14 +55,15 @@ resource "aws_s3_bucket_website_configuration" "config" {
   }
 }
 
-resource "aws_s3_object" "frontend_files" {
-  for_each = fileset(var.frontend_build_path, "**/*")
+# resource "aws_s3_object" "frontend_files" {
+#   for_each = fileset(var.frontend_build_path, "**/*")
 
-  bucket = aws_s3_bucket.frontend.id
-  key = each.value
-  source = "${var.frontend_build_path}/${each.value}"
-  etag = filemd5("${var.frontend_build_path}/${each.value}")
-}
+#   bucket = aws_s3_bucket.frontend.id
+#   key = each.value
+#   source = "${var.frontend_build_path}/${each.value}"
+#   etag = filemd5("${var.frontend_build_path}/${each.value}")
+# }
+
 
 # resource "aws_s3_bucket_policy" "cloudfront_access" {
 #   bucket = aws_s3_bucket.frontend.id
