@@ -49,6 +49,10 @@ resource "aws_s3_bucket_website_configuration" "config" {
   index_document {
     suffix = "index.html"
   }
+
+  error_document {
+    key = "index.html"
+  }
 }
 
 resource "aws_s3_object" "frontend_files" {
