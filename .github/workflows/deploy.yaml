@@ -6,13 +6,13 @@ on:
     # pull_request:
     #     branches: main
 jobs:
-    terraform:
-        name: Terraform Lint, Security Check, Build and Deploy
+     deploy:
+        name: Terraform Infrastructure + upload static website
         runs-on: ubuntu-latest
 
         env:
             AWS_REGION: 'us-east-1'
-            TF_VERSION: '1.4.0'
+            TF_VERSION: '1.5.7'
             TFLINT_VERSION: '0.46.1'
             TFSEC_VERSION: '1.28.1'
         steps:
@@ -47,18 +47,18 @@ jobs:
             - name: Setup Node.js
               uses: actions/setup-node@v3
               with: 
-                node-version: 18
+                node-version: 20
             - name: Install Frontend Dependencies
-              run: npm ci
+              run: npm install
               
             - name: Build Frontend
               run: |
                 npm run build
-                npm run export
+              # npm run export
 
-            - name: Deploy to S3
-              run: |
-                aws s3 sync ./out s3://artisan-linkup-static-frontend --delete
+            # - name: Deploy to S3
+            #   run: |
+            #     aws s3 sync ./out s3://artisan-linkup-static-frontend --delete
 
 
                # TERRAFORM STEPS
@@ -99,3 +99,14 @@ jobs:
             - name: Terraform Apply
               run: terraform apply -auto-approve tfplan
               working-directory: terraform-infra
+
+            # Get bucket name from Terraform
+            - name: Get s3 bucket name
+              id: s3_bucket
+              run: echo "bucket_name = $(terraform -chdir=./terraform-infra output -raw artisan-linkup-static-frontend)" >> GITHUB_ENV
+
+            # upload frontend static files
+            - name: upload frontend static files to s3
+              run: |
+                echo "uploading frontend files to artisan-linkup-static-frontend"
+                aws s3 sync .next/static s3://artisan-linkup-static-frontend --delete
