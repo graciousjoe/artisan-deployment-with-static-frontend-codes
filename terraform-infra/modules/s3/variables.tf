@@ -19,5 +19,5 @@ variable "project_prefix" {
 
 variable "frontend_build_path" {
     description = "path to the frontend build output"
-    default = "ARTISAN-LINKUP/.next/static"
+    default = "../.next/static"
 }
