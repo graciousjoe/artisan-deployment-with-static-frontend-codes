@@ -17,3 +17,8 @@ output "oac_id" {
   description = "CloudFront OAC ID"
   value       = module.cloudfront.oac_id
 }
+
+output "frontend_bucket_website_endpoint" {
+   description = "website endpoint of the frontend s3 bucket"
+   value = module.s3.frontend_bucket_website_endpoint
+}

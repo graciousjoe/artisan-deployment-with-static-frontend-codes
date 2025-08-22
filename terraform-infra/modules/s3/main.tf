@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "frontend" {
   force_destroy = true
 
   tags = {
-    Name = "${var.project_prefix}-static-website"
+    Name = "${var.project_prefix}-static-frontend"
     environment  = var.environment
   }
 }
@@ -22,6 +22,7 @@ resource "aws_s3_bucket_versioning" "versioning" {
     status = "Enabled"
   }
 }
+
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "encryption" {
   bucket = aws_s3_bucket.frontend.id
@@ -48,6 +49,15 @@ resource "aws_s3_bucket_website_configuration" "config" {
   index_document {
     suffix = "index.html"
   }
+}
+
+resource "aws_s3_object" "frontend_files" {
+  for_each = fileset(var.frontend_build_path, "**/*")
+
+  bucket = aws_s3_bucket.frontend.id
+  key = each.value
+  source = "${var.frontend_build_path}/${each.value}"
+  etag = filemd5("${var.frontend_build_path}/${each.value}")
 }
 
 # resource "aws_s3_bucket_policy" "cloudfront_access" {

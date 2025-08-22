@@ -11,7 +11,7 @@ resource "aws_cloudfront_distribution" "cdn" {
   default_root_object = "index.html"
 
   origin {
-  domain_name = var.bucket_domain
+  domain_name = var.frontend_bucket_website_endpoint
   origin_id   = "s3-${var.bucket_name}"
 
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
@@ -108,7 +108,7 @@ resource "aws_cloudfront_function" "rewrite_index" {
 #           Service = "cloudfront.amazonaws.com"
 #         },
 #         Action    = "s3:GetObject",
-#         Resource  = "${var.bucket_arn}/*"
+#         Resource  = "${var.frontend_bucket_arn}/*"
 #       }
 #     ]
 #   })

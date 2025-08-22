@@ -1,5 +1,5 @@
 variable "aws_region" {
-    default = "eu-north-1"
+    default = "us-east-1"
 }
 
 variable "frontend_build_path" {
@@ -9,7 +9,7 @@ variable "frontend_build_path" {
    
 
 variable "project_prefix" {
-     default = "artisan_linkup"
+     default = "artisan-linkup"
   
 }
 
@@ -18,10 +18,5 @@ variable "environment"{
 }
 
 variable "bucket_name" {
-    default = "artisan_linkup_frontend" 
-}
-
-variable "bucket_regional_domain_name" {
-    description = "regional domain name of the frontend s3 bucket"
-    type = string
+    default = "static-frontend" 
 }
