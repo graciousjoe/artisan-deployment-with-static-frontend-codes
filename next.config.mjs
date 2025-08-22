@@ -7,7 +7,9 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Next.js 13+
-};
+  output: 'export',  // Next.js 13+
+}
 
-export default nextConfig;
+module.exports = nextConfig
+
+
