@@ -54,7 +54,7 @@ jobs:
             - name: Build Frontend
               run: |
                 npm run build
-              # npm run export
+                npm run export
 
             - name: Deploy to S3
               run: |
