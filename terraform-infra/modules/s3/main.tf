@@ -51,7 +51,7 @@ resource "aws_s3_bucket_website_configuration" "config" {
   }
 
   error_document {
-    key = "index.html"
+    key = "error.html"
   }
 }
 
@@ -80,7 +80,7 @@ resource "aws_s3_object" "frontend_files" {
 #         Resource  = "${aws_s3_bucket.frontend.arn}/*",
 #         Condition = {
 #           StringEquals = {
-#             "AWS:SourceArn" = data.aws_cloudfront_distribution.this.arn
+#             "AWS:SourceArn" = aws_cloudfront_distribution.cdn.arn
 #           }
 #         }
 #       }
