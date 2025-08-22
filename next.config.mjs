@@ -10,6 +10,6 @@ const nextConfig = {
   output: 'export',  // Next.js 13+
 }
 
-module.exports = nextConfig
+export default nextConfig;
 
 
