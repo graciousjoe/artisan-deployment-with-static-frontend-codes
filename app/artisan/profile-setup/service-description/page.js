@@ -9,35 +9,40 @@ export default function JobDescriptionPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
+    // Trim all string values in formData
+    const data = Object.fromEntries(
+      Array.from(formData.entries()).map(([k, v]) => [k, typeof v === "string" ? v.trim() : v])
+    );
 
     // Get state from previous page's localStorage
     const previousData = JSON.parse(localStorage.getItem("jobFormData")) || {};
-    const state =
-      previousData.location ||
-      previousData.state ||
-      previousData.locationState ||
-      previousData.location_name ||
-      previousData.location; // fallback for different key names
+    const derivedState =
+      (previousData && typeof previousData.location === "object"
+        ? previousData.location?.state
+        : undefined) ??
+      previousData?.state ??
+      previousData?.locationState ??
+      previousData?.location_name ??
+      (typeof previousData?.location === "string"
+        ? previousData.location
+        : undefined);
 
-    // Combine state and city into location object
+    // Build normalized mergedData
     const mergedData = {
-      ...previousData,
-      ...data,
       location: {
-        state: state,
-        city: data["city"],
+        state: derivedState,
+        city: data["city"] || "",
       },
+      number: data["number"] || "",
+      jobDescription: data["job-description"] || "",
     };
-    // Remove flat city and state keys if present
-    delete mergedData["city"];
-    delete mergedData["state"];
-    delete mergedData["locationState"];
-    delete mergedData["location_name"];
+
+    // Remove legacy/flat keys from previousData
+    // Only keep normalized keys in mergedData
 
     console.log(mergedData);
     localStorage.setItem("jobFormData", JSON.stringify(mergedData));
-    router.push(`/customer/profile-setup/job-description/job-description-cont`);
+    // router.push(`/customer/profile-setup/job-description/job-description-cont`);
   };
 
   return (
