@@ -3,8 +3,11 @@ import React from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import ConditionalNavbar from "./components/ConditionalNavbar";
 import Footer from "./components/Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,17 +31,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.className} antialiased flex flex-col min-h-screen`}
-      >
-        {/* Navbar consistent across all pages */}
-        <Navbar />
-
-        {/* Main content for page-specific components */}
-        <main className="flex-grow">{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <SessionProvider>
+      <html lang="en">
+        <body
+          className={`${inter.className} antialiased flex flex-col min-h-screen`}
+        >
+          <ConditionalNavbar />
+          <main className="flex-grow pt-16">{children}</main>
+          <ToastContainer />
+          <Footer />
+        </body>
+      </html>
+    </SessionProvider>
   );
 }

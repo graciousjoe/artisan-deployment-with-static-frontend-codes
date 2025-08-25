@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@theme {
+  /* Define your theme colors here */
+  --color-primary: #f97216; /* Example color */
+  --color-secondary: #2a9d8f; /* Example color */
+  --color-cream: #fbf2e5; /* Example color */
+  --color-background: #f4f1ee; /* Example color */
+  --color-background-2: #f3c482; /* Example color */
+  --color-background-dark: #292929; /* Example color */
+  --color-text: #333333; /* Example color */
+}
+
+html,
+body {
+  height: 100%; /* Ensure both html and body take full height */
+}
+
+/* Add this if you specifically want html to always be min 100vh, though body's min-h-screen is often enough */
+html {
+  min-height: 100vh;
+}
