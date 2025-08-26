@@ -3,11 +3,10 @@ import Image from "next/image";
 import GoogleAuth from "@/app/components/GoogleAuth";
 import { SessionProvider } from "next-auth/react";
 import Link from "next/link";
+import FeedbackMessage from "./FeedbackMessage";
+import { Suspense } from "react";
 
-export default function SignUp({ searchParams }) {
-  const success = searchParams?.success;
-  const error = searchParams?.error;
-
+export default function SignUp() {
   return (
     <div className="flex justify-center items-center md:bg-black h-full w-full">
       <div className="bg-white flex flex-col items-center justify-center p-10 gap-8 rounded-lg shadow-lg w-full md:w-[50%]">
@@ -23,16 +22,9 @@ export default function SignUp({ searchParams }) {
         </h1>
 
         {/* ✅ Feedback Message */}
-        {success && (
-          <p className="text-green-600 font-medium">
-            Account created successfully!
-          </p>
-        )}
-        {error && (
-          <p className="text-red-600 font-medium">
-            {decodeURIComponent(error)}
-          </p>
-        )}
+        <Suspense>
+          <FeedbackMessage />
+        </Suspense>
 
         <form className="flex flex-col gap-4 w-[100%]">
           <div className="flex flex-col items-center w-full">

@@ -4,17 +4,19 @@ import GoogleAuth from "@/app/components/GoogleAuth";
 import { SessionProvider } from "next-auth/react";
 
 import Link from "next/link";
+import FeedbackMessage from "./FeedbackMessage";
+import { Suspense } from "react";
 
-export default function SignUp({ searchParams }) {
-  const success = searchParams?.success;
-  const error = searchParams?.error;
-
+export default function SignUp() {
   return (
     <div className="flex justify-center items-center md:bg-black h-full w-full">
       <div className="bg-white flex flex-col items-center justify-center p-10 gap-8 rounded-lg shadow-lg w-full md:w-[50%]">
         <h1 className="text-2xl md:text-3xl font-medium">
           Sign up to Hire Artisans
         </h1>
+        <Suspense>
+          <FeedbackMessage />
+        </Suspense>
 
         <form className="flex flex-col gap-4 w-[100%]">
           <div className="flex flex-col items-center w-full">
