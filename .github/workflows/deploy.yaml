@@ -109,4 +109,4 @@ jobs:
             - name: upload frontend static files to s3
               run: |
                 echo "uploading frontend files to artisan-linkup-static-frontend"
-                aws s3 sync .next/static s3://artisan-linkup-static-frontend --delete
+                aws s3 sync ./out s3://artisan-linkup-static-frontend --delete
