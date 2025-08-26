@@ -4,10 +4,9 @@ import GoogleAuth from "@/app/components/GoogleAuth";
 import { SessionProvider } from "next-auth/react";
 import Link from "next/link";
 
-export default async function SignUp({ searchParams }) {
-  const params = await searchParams;
-  const success = params?.success;
-  const error = params?.error;
+export default function SignUp({ searchParams }) {
+  const success = searchParams?.success;
+  const error = searchParams?.error;
 
   return (
     <div className="flex justify-center items-center md:bg-black h-full w-full">
@@ -35,7 +34,7 @@ export default async function SignUp({ searchParams }) {
           </p>
         )}
 
-        <form  className="flex flex-col gap-4 w-[100%]">
+        <form className="flex flex-col gap-4 w-[100%]">
           <div className="flex flex-col items-center w-full">
             <input type="hidden" name="role" value="artisan" />
             <input
@@ -111,7 +110,7 @@ export default async function SignUp({ searchParams }) {
         </form>
 
         <SessionProvider>
-          <GoogleAuth role="artisan"/>
+          <GoogleAuth role="artisan" />
         </SessionProvider>
       </div>
     </div>

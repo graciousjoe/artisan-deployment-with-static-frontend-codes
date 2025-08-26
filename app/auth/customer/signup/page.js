@@ -5,10 +5,9 @@ import { SessionProvider } from "next-auth/react";
 
 import Link from "next/link";
 
-export default async function SignUp({ searchParams }) {
-  const params = await searchParams;
-  const success = params?.success;
-  const error = params?.error;
+export default function SignUp({ searchParams }) {
+  const success = searchParams?.success;
+  const error = searchParams?.error;
 
   return (
     <div className="flex justify-center items-center md:bg-black h-full w-full">
