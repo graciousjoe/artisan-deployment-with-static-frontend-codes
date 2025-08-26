@@ -2,7 +2,6 @@
 import Image from "next/image";
 import GoogleAuth from "@/app/components/GoogleAuth";
 import { SessionProvider } from "next-auth/react";
-import { createUser } from "./actions";
 import Link from "next/link";
 
 export default async function SignUp({ searchParams }) {
@@ -36,7 +35,7 @@ export default async function SignUp({ searchParams }) {
           </p>
         )}
 
-        <form action={createUser} className="flex flex-col gap-4 w-[100%]">
+        <form  className="flex flex-col gap-4 w-[100%]">
           <div className="flex flex-col items-center w-full">
             <input type="hidden" name="role" value="artisan" />
             <input
