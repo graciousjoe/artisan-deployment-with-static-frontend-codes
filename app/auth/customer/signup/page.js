@@ -1,7 +1,6 @@
 // signup/page.jsx or page.tsx
 import Image from "next/image";
-import GoogleAuth from "@/app/components/GoogleAuth";
-import { SessionProvider } from "next-auth/react";
+// ...existing code...
 
 import Link from "next/link";
 import FeedbackMessage from "./FeedbackMessage";
@@ -93,9 +92,7 @@ export default function SignUp() {
           </p>
         </form>
 
-        <SessionProvider>
-          <GoogleAuth role="customer" />
-        </SessionProvider>
+        {/* GoogleAuth removed for static hosting */}
       </div>
     </div>
   );
