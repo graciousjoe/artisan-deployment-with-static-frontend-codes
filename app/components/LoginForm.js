@@ -1,5 +1,4 @@
-import GoogleAuth from "@/app/components/GoogleAuth";
-import { SessionProvider } from "next-auth/react";
+// ...existing code...
 import Link from "next/link";
 
 export default function LoginForm() {
@@ -33,11 +32,7 @@ export default function LoginForm() {
         <hr className="w-full border-t border-gray-400" />
       </div>
 
-      <div className="flex flex-col items-center justify-center mt-4 w-full">
-        <SessionProvider>
-          <GoogleAuth />
-        </SessionProvider>
-      </div>
+      {/* GoogleAuth removed for static hosting */}
 
       <div className="flex flex-col items-center justify-center mt-8 gap-5 ">
         <p>Don&apos;t have an account? </p>
