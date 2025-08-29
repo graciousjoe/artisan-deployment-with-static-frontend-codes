@@ -1,5 +1,6 @@
 import Image from "next/image";
 import NewsLetter from "@/app/components/NewsLetter";
+import Link from "next/link";
 export default function ContactPage() {
   return (
     <div className="flex flex-col">
@@ -19,7 +20,6 @@ export default function ContactPage() {
           </p>
 
           <div>
-            {" "}
             <p className="font-medium flex gap-2 mt-4">
               <Image
                 src="/icons/envelope.svg"
@@ -62,30 +62,54 @@ export default function ContactPage() {
             <div className="flex flex-col gap-2">
               <p>Follow us for Updates and Opportunities</p>
               <span className="flex gap-4">
-                <Image
-                  src="/icons/facebook.svg"
-                  alt="Facebook link"
-                  width={24}
-                  height={24}
-                />
-                <Image
-                  src="/icons/instagram.svg"
-                  alt="Instagram link"
-                  width={24}
-                  height={24}
-                />
-                <Image
-                  src="/icons/x.svg"
-                  alt="Twitter"
-                  width={24}
-                  height={24}
-                />
-                <Image
-                  src="/icons/linkedin.svg"
-                  alt="LinkedIn link"
-                  width={24}
-                  height={24}
-                />
+                <Link
+                  href="https://web.facebook.com/people/ArtisanLinkup/61579885109972/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/icons/facebook.svg"
+                    alt="Facebook link"
+                    width={24}
+                    height={24}
+                  />
+                </Link>
+                <Link
+                  href="https://instagram.com/artisanlinkup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/icons/instagram.svg"
+                    alt="Instagram link"
+                    width={24}
+                    height={24}
+                  />
+                </Link>
+                <Link
+                  href="https://twitter.com/artisanlinkup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/icons/x.svg"
+                    alt="Twitter"
+                    width={24}
+                    height={24}
+                  />
+                </Link>
+                <Link
+                  href="https://linkedin.com/artisanlinkup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/icons/linkedin.svg"
+                    alt="LinkedIn link"
+                    width={24}
+                    height={24}
+                  />
+                </Link>
               </span>
             </div>
           </div>

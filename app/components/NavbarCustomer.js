@@ -34,7 +34,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white text-black p-4 fixed w-full z-50 shadow-md">
       <div className="flex text-sm items-center justify-between py-1 gap-6 container mx-auto max-w-5xl">
-        <Link className="flex items-center gap-2" href="/">
+        <Link className="flex items-center gap-2" href="./dashboard">
           <Image
             src="/Artisan-logo.png"
             alt="Artisan Logo"
