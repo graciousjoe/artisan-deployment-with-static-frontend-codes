@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <div className="relative h-[80vh] md:h-150 w-full bg-[url('/hero-img.png')] bg-no-repeat bg-cover bg-center">
+    <div className="relative h-[80vh] md:h-150 w-full  bg-[url('/assets/hero1.png')] bg-no-repeat bg-cover bg-center">
       {/* Overlay */}
       <div className="absolute inset-0 opacity-50"></div>
 

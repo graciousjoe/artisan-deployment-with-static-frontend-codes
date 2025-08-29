@@ -45,10 +45,11 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden lg:flex lg:gap-6 lg:items-center">
-          <div className="relative">
-            <button className="hover:text-primary">Categories</button>
-          </div>
+          
           <div className="flex gap-4">
+             <Link href="/categories" className="hover:text-primary">
+              Categories
+            </Link>
             <Link href="/about" className="hover:text-primary">
               About Us
             </Link>

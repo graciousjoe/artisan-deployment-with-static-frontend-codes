@@ -9,4 +9,7 @@ export default function ConditionalNavbar() {
     return <NavbarMinimal />;
   }
   return <Navbar />;
+  if (pathname.startsWith("/customer")) {
+    return <NavbarCustomer />;
+  }
 }
